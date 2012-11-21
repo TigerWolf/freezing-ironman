@@ -114,7 +114,6 @@ group :development, :test do
   gem 'database_cleaner', "~> 0.9.1"
 
   # Helpers
-  #gem 'launchy', "2.1.0" #dependency but not used
   gem 'timecop', "~> 0.5.3"
   gem 'timer', '~> 0.1.6'
 
