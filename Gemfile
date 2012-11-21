@@ -5,7 +5,7 @@ gem 'rails', '3.2.8'
 gem 'rake',  '~> 0.9.2'
 
 # HTTP server
-gem 'unicorn', '~> 4.2.0'
+gem 'unicorn', '~> 4.4.0'
 
 # Performance
 gem 'rpm_contrib', '~> 2.1.4'
@@ -65,8 +65,7 @@ gem 'yard', "~> 0.8.3"
 gem "aws-ses", "~> 0.4.4", :require => 'aws/ses'
 
 # SFTP (for Grays SFTP access)
-#gem 'net-sftp', :require  => 'net/sftp'
-gem 'net-ssh', "2.2.1"
+gem "net-sftp", "~> 2.0.5"
 
 # Data Migration
 gem 'data_migrate', "~> 1.2.0", git: 'git://github.com/doublewide/data-migrate.git'
@@ -109,13 +108,13 @@ group :development, :test do
   gem 'selenium-webdriver', '2.26.0'
 
   # Mocking
-  gem "mocha", "~> 0.11.4"
+  gem "mocha", "~> 0.11.4" #new versions have updates for mini-test - not needed for now (0.13)
 
   # Fixtures
   gem 'database_cleaner', "~> 0.9.1"
 
   # Helpers
-  gem 'launchy', "2.1.0"
+  #gem 'launchy', "2.1.0" #dependency but not used
   gem 'timecop', "~> 0.5.3"
   gem 'timer', '~> 0.1.6'
 
@@ -131,7 +130,7 @@ group :development, :test do
   gem 'mailtrap', "~> 0.2.1"
 
   # VCR Mocks
-  gem "vcr", "~> 2.2.4"
+  gem "vcr", "~> 2.3.0"
   gem "fakeweb", "~> 1.3.0"
 end
 
