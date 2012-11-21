@@ -88,54 +88,53 @@ gem 'draper', "~> 0.18.0"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-gem 'sass-rails',   '~> 3.2.3'
-gem 'coffee-rails', '~> 3.2.1'
-gem 'uglifier',     '>= 1.0.3'
-gem 'jquery-rails', '~> 2.1.3'
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier',     '>= 1.0.3'
+  gem 'jquery-rails', '~> 2.1.3'
 end
 
 # Testing
 group :development, :test do
-# Rspec
-gem 'rspec-rails', '>= 2.6.0'
-gem 'fuubar', "~> 1.1.0"
-gem 'shoulda', "~> 3.3.2"
+  # Rspec
+  gem 'rspec-rails', '>= 2.6.0'
+  gem 'fuubar', "~> 1.1.0"
+  gem 'shoulda', "~> 3.3.2"
 
-# Used for continuous deployment
-gem "engineyard", "2.0.9"
+  # Used for continuous deployment
+  gem "engineyard", "2.0.9"
 
-gem 'capybara-firebug', "~> 1.2.3"
-gem 'selenium-client', "~> 1.2.18"
-gem 'selenium-webdriver', '2.25.0'
+  gem 'capybara-firebug', "~> 1.2.3"
+  gem 'selenium-client', "~> 1.2.18"
+  gem 'selenium-webdriver', '2.26.0'
 
-# Mocking
-gem "mocha", "~> 0.11.4"
+  # Mocking
+  gem "mocha", "~> 0.11.4"
 
-# Fixtures
-gem 'database_cleaner', "~> 0.9.1"
+  # Fixtures
+  gem 'database_cleaner', "~> 0.9.1"
 
-# Helpers
-gem 'launchy', "2.1.0"
-gem 'timecop', "~> 0.5.3"
-gem 'timer', '~> 0.1.6'
+  # Helpers
+  gem 'launchy', "2.1.0"
+  gem 'timecop', "~> 0.5.3"
+  gem 'timer', '~> 0.1.6'
 
-gem "spork", "~> 0.9.2"
-gem 'pry', " ~> 0.9.10 "
-gem 'sham_rack', "~> 1.3.4"
-gem "ruby-debug19", "~> 0.11.6"
+  gem "spork", "~> 0.9.2"
+  gem 'pry', " ~> 0.9.10 "
+  gem 'sham_rack', "~> 1.3.4"
+  gem "ruby-debug19", "~> 0.11.6"
 
-gem 'hirb', "~> 0.7.0"
+  gem 'hirb', "~> 0.7.0"
 
 
-# Fake mail for development
-gem 'mailtrap', "~> 0.2.1"
+  # Fake mail for development
+  gem 'mailtrap', "~> 0.2.1"
 
-# VCR Mocks
-gem "vcr", "~> 2.2.4"
-gem "fakeweb", "~> 1.3.0"
+  # VCR Mocks
+  gem "vcr", "~> 2.2.4"
+  gem "fakeweb", "~> 1.3.0"
 end
 
 group :test do
-gem 'resque_spec', "~> 0.12.5"
+  gem 'resque_spec', "~> 0.12.5"
 end
-
