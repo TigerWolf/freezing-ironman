@@ -107,6 +107,8 @@ group :development, :test do
   gem 'selenium-client', "~> 1.2.18"
   gem 'selenium-webdriver', '2.26.0'
 
+  gem 'poltergeist'
+
   # Mocking
   gem "mocha", "~> 0.11.4" #new versions have updates for mini-test - not needed for now (0.13)
 
