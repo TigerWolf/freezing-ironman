@@ -9,7 +9,7 @@ gem 'unicorn', '~> 4.4.0'
 
 # Performance
 gem 'rpm_contrib', '~> 2.1.4'
-gem 'newrelic_rpm'
+gem 'newrelic_rpm', '~> 3.5.3'
 
 # Models
 gem 'pg', '>= 0.11.0'
@@ -19,7 +19,7 @@ gem 'valium', "~> 0.5.0"
 gem 'ancestry', "~> 1.3.0"
 gem "nickel", "~> 0.0.6"
 gem 'activerecord-import', "~> 0.2.11"
-gem 'settingcrazy', '~> 0.1.1', git: 'https://github.com/echannel/settingcrazy.git'
+gem 'settingcrazy', '~> 0.1.6', git: 'https://github.com/echannel/settingcrazy.git'
 
 # These required for seeds so is used in production (for staging/develop)
 # gem 'sham'
@@ -93,6 +93,13 @@ group :assets do
   gem 'jquery-rails', '~> 2.1.3'
 end
 
+group :development, :test, :staging do
+  # Fixtures
+  gem 'database_cleaner', "~> 0.9.1"
+end
+
+gem "quiet_assets", "~> 1.0.1", :group => :development
+
 # Testing
 group :development, :test do
   # Rspec
@@ -112,9 +119,6 @@ group :development, :test do
   # Mocking
   gem "mocha", "~> 0.11.4" #new versions have updates for mini-test - not needed for now (0.13)
 
-  # Fixtures
-  gem 'database_cleaner', "~> 0.9.1"
-
   # Helpers
   gem 'timecop', "~> 0.5.3"
   gem 'timer', '~> 0.1.6'
@@ -125,7 +129,6 @@ group :development, :test do
   gem "ruby-debug19", "~> 0.11.6"
 
   gem 'hirb', "~> 0.7.0"
-
 
   # Fake mail for development
   gem 'mailtrap', "~> 0.2.1"
