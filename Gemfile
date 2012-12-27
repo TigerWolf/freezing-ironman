@@ -13,7 +13,7 @@ gem 'newrelic_rpm', '~> 3.5.3'
 
 # Models
 gem 'pg', '>= 0.11.0'
-gem "squeel", "~> 1.0.13"
+gem "squeel", "~> 1.0.14"
 gem 'meta_search', "~> 1.1.3"
 gem 'valium', "~> 0.5.0"
 gem 'ancestry', "~> 1.3.0"
@@ -38,7 +38,7 @@ gem 'dotiw', "~> 1.1.1"
 
 # Authentication and authorisation
 gem 'devise','~> 2.1'
-gem 'devise_invitable', '~> 1.1.0'
+gem 'devise_invitable', '~> 1.1.4'
 gem 'cancan', "~> 1.6.8"
 
 # Encoding
@@ -48,7 +48,7 @@ gem 'magic_encoding', "~> 0.0.2"
 gem 'gravtastic', "~> 3.2.6"
 
 # Worker
-gem 'nokogiri', "~> 1.5.5"
+gem 'nokogiri', "~> 1.5.6"
 gem 'savon', "~> 1.2.0"
 gem 'httparty', "~> 0.9.0"
 gem 'cabinet'#, "~> 0.2.2"
@@ -90,7 +90,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier',     '>= 1.0.3'
-  gem 'jquery-rails', '~> 2.1.3'
+  gem 'jquery-rails', '~> 2.1.4'
 end
 
 group :development, :test, :staging do
@@ -115,9 +115,9 @@ group :development, :test do
   # Used for continuous deployment
   #gem "engineyard", "2.0.9"
 
-  gem 'capybara-firebug', "~> 1.2.3"
+  gem 'capybara-firebug', "~> 1.3.0"
   gem 'selenium-client', "~> 1.2.18"
-  gem 'selenium-webdriver', '2.26.0'
+  gem 'selenium-webdriver', '2.27.2'
 
   gem 'poltergeist'
 
