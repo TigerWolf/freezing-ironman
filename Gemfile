@@ -5,7 +5,7 @@ gem 'rails', '3.2.8'
 gem 'rake',  '~> 0.9.2'
 
 # HTTP server
-gem 'unicorn', '~> 4.4.0'
+gem 'unicorn', '~> 4.5.0'
 
 # Performance
 gem 'rpm_contrib', '~> 2.1.4'
@@ -56,7 +56,7 @@ gem 'resque', :git => 'git://github.com/defunkt/resque.git'
 gem 'god', "~> 0.13.1", :require => false
 gem 'rubyzip', "~> 0.9.9", :require => 'zip/zip'
 gem 'aws-s3', "~> 0.6.3"
-gem 'multi_json', '~> 1.3.7'
+gem 'multi_json', '~> 1.5.0'
 
 # Documentation
 gem 'yard', "~> 0.8.3"
@@ -125,7 +125,7 @@ group :development, :test do
   gem "mocha", "~> 0.11.4" #new versions have updates for mini-test - not needed for now (0.13)
 
   # Helpers
-  gem 'timecop', "~> 0.5.3"
+  gem 'timecop', "~> 0.5.6"
   gem 'timer', '~> 0.1.6'
 
   gem "spork", "~> 0.9.2"
@@ -142,7 +142,7 @@ group :development, :test do
   gem "vcr", "~> 2.3.0"
   gem "fakeweb", "~> 1.3.0"
 
-  gem "launchy"
+  gem "launchy", "~> 2.1.2"
 end
 
 group :test do
