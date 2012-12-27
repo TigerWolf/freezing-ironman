@@ -19,7 +19,7 @@ gem 'valium', "~> 0.5.0"
 gem 'ancestry', "~> 1.3.0"
 gem "nickel", "~> 0.0.6"
 gem 'activerecord-import', "~> 0.2.11"
-gem 'settingcrazy', '~> 0.1.6', git: 'https://github.com/echannel/settingcrazy.git'
+gem 'settingcrazy', '~> 0.1.7', git: 'https://github.com/echannel/settingcrazy.git'
 
 # These required for seeds so is used in production (for staging/develop)
 # gem 'sham'
@@ -52,7 +52,7 @@ gem 'nokogiri', "~> 1.5.5"
 gem 'savon', "~> 1.2.0"
 gem 'httparty', "~> 0.9.0"
 gem 'cabinet'#, "~> 0.2.2"
-gem 'resque', "~> 1.23.0"
+gem 'resque', :git => 'git://github.com/defunkt/resque.git'
 gem 'god', "~> 0.13.1", :require => false
 gem 'rubyzip', "~> 0.9.9", :require => 'zip/zip'
 gem 'aws-s3', "~> 0.6.3"
@@ -78,7 +78,7 @@ gem 'htmlentities', "~> 4.3.1"
 
 # LEAVE IN PRODUCT - USED FOR CONVERSION CODE CHECKER
 # Capybara
-gem 'capybara', "~> 1.1.3" # 2.0 is now avaliable - will need to check this and possibly upgrade
+gem 'capybara', "~> 1.1.4" # 2.0 is now avaliable - will need to check this and possibly upgrade
 gem 'capybara-webkit', "~> 0.13.0"
 
 # Add logic between setting_values & publishing values
@@ -98,7 +98,12 @@ group :development, :test, :staging do
   gem 'database_cleaner', "~> 0.9.1"
 end
 
-gem "quiet_assets", "~> 1.0.1", :group => :development
+group :development do
+  gem "better_errors", git: 'git://github.com/TigerWolf/better_errors.git'
+  gem "quiet_assets", "~> 1.0.1"
+  gem "binding_of_caller"
+  gem "thin", "~> 1.5.0"
+end
 
 # Testing
 group :development, :test do
@@ -108,7 +113,7 @@ group :development, :test do
   gem 'shoulda', "~> 3.3.2"
 
   # Used for continuous deployment
-  gem "engineyard", "2.0.9"
+  #gem "engineyard", "2.0.9"
 
   gem 'capybara-firebug', "~> 1.2.3"
   gem 'selenium-client', "~> 1.2.18"
@@ -136,6 +141,8 @@ group :development, :test do
   # VCR Mocks
   gem "vcr", "~> 2.3.0"
   gem "fakeweb", "~> 1.3.0"
+
+  gem "launchy"
 end
 
 group :test do
