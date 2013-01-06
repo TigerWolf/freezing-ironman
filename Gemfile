@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 source 'https://gems.gemfury.com/fHtphqCq9zLeDRvssKD4/'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.10'
 gem 'rake',  '~> 0.9.2'
 
 # HTTP server
@@ -125,7 +125,7 @@ group :development, :test do
   gem "mocha", "~> 0.11.4" #new versions have updates for mini-test - not needed for now (0.13)
 
   # Helpers
-  gem 'timecop', "~> 0.5.6"
+  gem 'timecop', "~> 0.5.7"
   gem 'timer', '~> 0.1.6'
 
   gem "spork", "~> 0.9.2"
