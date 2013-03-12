@@ -38,7 +38,7 @@ gem 'dotiw', "~> 1.1.1"
 gem 'navigasmic', '~> 1.0.4'
 
 # Authentication and authorisation
-gem 'devise','~> 2.1'
+gem 'devise','~> 2.2.3'
 gem 'devise_invitable', '~> 1.1.4'
 gem 'cancan', "~> 1.6.8"
 
@@ -106,7 +106,7 @@ group :development, :test, :staging do
 end
 
 group :development do
-  gem "better_errors", "~> 0.3.2" # git: 'git://github.com/TigerWolf/better_errors.git'
+  gem "better_errors", "~> 0.7.2" # git: 'git://github.com/TigerWolf/better_errors.git'
   gem "quiet_assets", "~> 1.0.1"
   gem "binding_of_caller"
   gem "thin", "~> 1.5.0"
@@ -131,7 +131,7 @@ group :development, :test do
 
   gem 'capybara-firebug', "~> 1.3.0"
   gem 'selenium-client', "~> 1.2.18"
-  gem 'selenium-webdriver', '2.31.0'
+  gem 'selenium-webdriver', '2.27.2'
 
   gem 'poltergeist'
 
