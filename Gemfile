@@ -7,6 +7,15 @@ gem 'rake',  '~> 0.9.2'
 # HTTP server
 gem 'unicorn', '~> 4.5.0'
 
+# EngineYard
+gem 'ey_config'
+
+# HTTP Client
+gem "excon", "0.6.6" # TODO: Update this when we deprecate and remove cabinet (post FP migration)
+
+# EngineYard
+gem 'ey_config'
+
 # Performance
 gem 'rpm_contrib', '~> 2.1.4'
 gem 'newrelic_rpm', '~> 3.5.3'
@@ -19,10 +28,10 @@ gem 'valium', "~> 0.5.0"
 gem 'ancestry', "~> 1.3.0"
 gem "nickel", "~> 0.0.6"
 gem 'activerecord-import', "~> 0.2.11"
-gem 'settingcrazy', '~> 0.1.7', git: 'https://github.com/echannel/settingcrazy.git'
+gem 'settingcrazy', '~> 0.1.8', git: 'https://github.com/echannel/settingcrazy.git'
+gem "acts_as_list", "~> 0.2.0"
 
 # These required for seeds so is used in production (for staging/develop)
-# gem 'sham'
 gem 'machinist', "~> 2.0"
 gem 'forgery', "~> 0.5.0"
 
@@ -39,7 +48,7 @@ gem 'navigasmic', '~> 1.0.4'
 
 # Authentication and authorisation
 gem 'devise','~> 2.2.3'
-gem 'devise_invitable', '~> 1.1.4'
+gem 'devise_invitable', '~> 1.1.6'
 gem 'cancan', "~> 1.6.8"
 
 # Encoding
@@ -53,11 +62,12 @@ gem 'nokogiri', "~> 1.5.6"
 gem 'savon', "~> 1.2.0"
 gem "httparty", "~> 0.10.0"
 gem 'cabinet'#, "~> 0.2.2"
-gem 'resque', :git => 'git://github.com/defunkt/resque.git'
+gem 'resque', :git => 'git://github.com/resque/resque.git', ref: '7c20cc5972cba44aca0878580ef284bb75246b67'
 gem 'god', "~> 0.13.1", :require => false
 gem 'rubyzip', "~> 0.9.9", :require => 'zip/zip'
 gem 'aws-s3', "~> 0.6.3"
 gem 'multi_json', '~> 1.5.0'
+
 
 # Documentation
 gem 'yard', "~> 0.8.3"
@@ -75,15 +85,11 @@ gem 'data_migrate', "~> 1.2.0", git: 'git://github.com/doublewide/data-migrate.g
 gem 'notification_client'
 
 # Inventories
-gem 'feed_proxy_client', '~> 0.0.4'
+gem 'feed_proxy_client', "0.0.7"
 
 # Inventory Filters
 gem 'htmlentities', "~> 4.3.1"
 
-# LEAVE IN PRODUCT - USED FOR CONVERSION CODE CHECKER
-# Capybara
-gem 'capybara', "~> 1.1.4" # 2.0 is now avaliable - will need to check this and possibly upgrade
-gem 'capybara-webkit', "~> 0.12.0"
 
 # Add logic between setting_values & publishing values (Decorator)
 gem 'draper', "~> 0.18.0"
@@ -100,6 +106,8 @@ group :assets do
   gem 'jquery-rails', '~> 2.1.4'
 end
 
+gem 'asset_sync',   '~> 0.5.4'
+
 group :development, :test, :staging do
   # Fixtures
   gem 'database_cleaner', "~> 0.9.1"
@@ -108,42 +116,44 @@ end
 group :development do
   gem "better_errors", "~> 0.7.2" # git: 'git://github.com/TigerWolf/better_errors.git'
   gem "quiet_assets", "~> 1.0.1"
-  gem "binding_of_caller"
+  gem "binding_of_caller", "~> 0.7.1"
   gem "thin", "~> 1.5.0"
   gem 'meta_request', '0.2.1'
   # Live reloading
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
   gem 'rb-fsevent',       require: false
+  # Better logging
+  gem 'sql-logging'
 end
 
 # Testing
 group :development, :test do
   # Rspec
-  gem 'rspec-rails', '>= 2.6.0'
-  gem 'fuubar', "~> 1.1.0"
+  gem 'rspec-rails', '>= 2.12.0'
   gem 'shoulda', "~> 3.3.2"
 
-  gem "cover_me"
-
-  # Used for continuous deployment
-  #gem "engineyard", "2.0.9"
-
+  gem 'capybara', "~> 1.1.4" # 2.0 is now avaliable - will need to check this and possibly upgrade
+  gem 'capybara-webkit', "~> 0.12.0"
   gem 'capybara-firebug', "~> 1.3.0"
   gem 'selenium-client', "~> 1.2.18"
-  gem 'selenium-webdriver', '2.27.2'
+  gem 'selenium-webdriver', '2.31.0'
 
   gem 'poltergeist'
 
   # Mocking
-  gem "mocha", "~> 0.13.2"
+  gem "mocha", "~> 0.13.2", :require => "mocha/setup"
 
   # Helpers
   gem 'timecop', "~> 0.5.7"
   gem 'timer', '~> 0.1.6'
 
   gem "spork", "~> 0.9.2"
-  gem 'pry', " ~> 0.9.10 "
+  gem 'pry', " ~> 0.9.12.2"
+  gem 'pry-nav', "~> 0.2.3"
+  gem 'pry-rails', "~> 0.3.0"
+  gem 'pry-rescue', '~> 1.1.1'
+  gem 'pry-stack_explorer', "~> 0.4.9"
   gem 'sham_rack', "~> 1.3.4"
   gem "ruby-debug19", "~> 0.11.6"
 
@@ -157,8 +167,12 @@ group :development, :test do
   gem "fakeweb", "~> 1.3.0"
 
   gem "launchy", "~> 2.1.2"
+
+  # Coverage Testing in the cloud :p
+  gem 'coveralls', require: false
+  gem 'simplecov', :require => false
 end
 
 group :test do
-  gem 'resque_spec', "~> 0.12.5"
+  gem 'resque_spec', "~> 0.13"
 end
