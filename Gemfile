@@ -9,12 +9,13 @@ gem 'unicorn', '~> 4.5.0'
 
 # EngineYard
 gem 'ey_config'
+gem 'ey-provisioner', ">= 1.0.1"
+
+# Error Capturing
+gem 'airbrake'
 
 # HTTP Client
 gem "excon", "0.6.6" # TODO: Update this when we deprecate and remove cabinet (post FP migration)
-
-# EngineYard
-gem 'ey_config'
 
 # Performance
 gem 'rpm_contrib', '~> 2.1.4'
@@ -28,7 +29,7 @@ gem 'valium', "~> 0.5.0"
 gem 'ancestry', "~> 1.3.0"
 gem "nickel", "~> 0.0.6"
 gem 'activerecord-import', "~> 0.2.11"
-gem 'settingcrazy', '~> 0.1.8', git: 'https://github.com/echannel/settingcrazy.git'
+gem 'settingcrazy', '~> 0.1.11', git: 'https://github.com/echannel/settingcrazy.git'
 gem "acts_as_list", "~> 0.2.0"
 
 # These required for seeds so is used in production (for staging/develop)
@@ -36,7 +37,7 @@ gem 'machinist', "~> 2.0"
 gem 'forgery', "~> 0.5.0"
 
 # Controllers
-gem 'inherited_resources', "~> 1.3.1"
+gem 'inherited_resources', "~> 1.4.0"
 
 # Views
 gem 'browser', "~> 0.1.5"
@@ -85,11 +86,10 @@ gem 'data_migrate', "~> 1.2.0", git: 'git://github.com/doublewide/data-migrate.g
 gem 'notification_client'
 
 # Inventories
-gem 'feed_proxy_client', "0.0.7"
+gem 'feed_proxy_client', "0.0.9"
 
 # Inventory Filters
 gem 'htmlentities', "~> 4.3.1"
-
 
 # Add logic between setting_values & publishing values (Decorator)
 gem 'draper', "~> 0.18.0"
@@ -133,6 +133,9 @@ group :development, :test do
   gem 'rspec-rails', '>= 2.12.0'
   gem 'shoulda', "~> 3.3.2"
 
+  # Moving over to FactoryGirl
+  gem "factory_girl_rails", "~> 4.2.1", require: false
+
   gem 'capybara', "~> 1.1.4" # 2.0 is now avaliable - will need to check this and possibly upgrade
   gem 'capybara-webkit', "~> 0.12.0"
   gem 'capybara-firebug', "~> 1.3.0"
@@ -145,17 +148,15 @@ group :development, :test do
   gem "mocha", "~> 0.13.2", :require => "mocha/setup"
 
   # Helpers
-  gem 'timecop', "~> 0.5.7"
+  gem 'timecop', "~> 0.6.2.2"
   gem 'timer', '~> 0.1.6'
 
   gem "spork", "~> 0.9.2"
   gem 'pry', " ~> 0.9.12.2"
-  gem 'pry-nav', "~> 0.2.3"
   gem 'pry-rails', "~> 0.3.0"
   gem 'pry-rescue', '~> 1.1.1'
   gem 'pry-stack_explorer', "~> 0.4.9"
   gem 'sham_rack', "~> 1.3.4"
-  gem "ruby-debug19", "~> 0.11.6"
 
   gem 'hirb', "~> 0.7.0"
 
