@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 source 'https://gems.gemfury.com/fHtphqCq9zLeDRvssKD4/'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.14'
 gem 'rake',  '~> 0.9.2'
 
 # HTTP server
@@ -23,7 +23,7 @@ gem 'newrelic_rpm', '~> 3.5.3'
 
 # Models
 gem 'pg', '>= 0.11.0'
-gem "squeel", "~> 1.0.14"
+gem "squeel", "~> 1.0.18"
 gem 'meta_search', "~> 1.1.3"
 gem 'valium', "~> 0.5.0"
 gem 'ancestry', "~> 1.3.0"
