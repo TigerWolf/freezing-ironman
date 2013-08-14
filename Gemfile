@@ -15,7 +15,7 @@ gem 'ey-provisioner', ">= 1.0.1"
 gem 'airbrake'
 
 # HTTP Client
-gem "excon", "0.6.6" # TODO: Update this when we deprecate and remove cabinet (post FP migration)
+gem "excon", "0.7.4" # TODO: Update this when we deprecate and remove cabinet (post FP migration)
 
 # Performance
 gem 'rpm_contrib', '~> 2.1.4'
@@ -62,12 +62,12 @@ gem 'gravtastic', "~> 3.2.6"
 gem 'nokogiri', "~> 1.5.6"
 gem 'savon', "~> 1.2.0"
 gem "httparty", "~> 0.10.0"
-gem 'cabinet'#, "~> 0.2.2"
+gem 'cabinet', "~> 0.2.2"
 gem 'resque', :git => 'git://github.com/resque/resque.git', ref: '7c20cc5972cba44aca0878580ef284bb75246b67'
 gem 'god', "~> 0.13.1", :require => false
 gem 'rubyzip', "~> 0.9.9", :require => 'zip/zip'
 gem 'aws-s3', "~> 0.6.3"
-gem 'multi_json', '~> 1.5.0'
+#gem 'multi_json', '~> 1.5.0'
 
 
 # Documentation
