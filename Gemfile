@@ -15,7 +15,7 @@ gem 'ey-provisioner', ">= 1.0.1"
 gem 'airbrake'
 
 # HTTP Client
-gem "excon", "0.7.4" # TODO: Update this when we deprecate and remove cabinet (post FP migration)
+gem "excon", "0.22.0" # TODO: Update this when we deprecate and remove cabinet (post FP migration)
 
 # Performance
 gem 'rpm_contrib', '~> 2.1.4'
@@ -48,9 +48,9 @@ gem 'dotiw', "~> 1.1.1"
 gem 'navigasmic', '~> 1.0.4'
 
 # Authentication and authorisation
-gem 'devise','~> 2.2.3'
-gem 'devise_invitable', '~> 1.1.6'
-gem 'cancan', "~> 1.6.8"
+gem 'devise','~> 2.2.6'
+gem 'devise_invitable', '~> 1.1.8'
+gem 'cancan', "~> 1.6.10"
 
 # Encoding
 gem 'magic_encoding', "~> 0.0.2"
@@ -67,7 +67,7 @@ gem 'resque', :git => 'git://github.com/resque/resque.git', ref: '7c20cc5972cba4
 gem 'god', "~> 0.13.1", :require => false
 gem 'rubyzip', "~> 0.9.9", :require => 'zip/zip'
 gem 'aws-s3', "~> 0.6.3"
-#gem 'multi_json', '~> 1.5.0'
+#gem 'multi_json', '~> 1.5.0' # This will need to be re-added when Cabinet is removed and updated to a more recent version
 
 
 # Documentation
@@ -114,11 +114,11 @@ group :development, :test, :staging do
 end
 
 group :development do
-  gem "better_errors", "~> 0.7.2" # git: 'git://github.com/TigerWolf/better_errors.git'
-  gem "quiet_assets", "~> 1.0.1"
+  gem "better_errors", "~> 0.9.0"
+  gem "quiet_assets", "~> 1.0.2"
   gem "binding_of_caller", "~> 0.7.1"
-  gem "thin", "~> 1.5.0"
-  gem 'meta_request', '0.2.1'
+  gem "thin", "~> 1.5.1"
+  gem 'meta_request', '0.2.8'
   # Live reloading
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
@@ -131,7 +131,7 @@ end
 group :development, :test do
   # Rspec
   gem 'rspec-rails', '>= 2.12.0'
-  gem 'shoulda', "~> 3.3.2"
+  gem 'shoulda', "~> 3.5.0"
 
   # Moving over to FactoryGirl
   gem "factory_girl_rails", "~> 4.2.1", require: false
@@ -148,26 +148,26 @@ group :development, :test do
   gem "mocha", "~> 0.13.2", :require => "mocha/setup"
 
   # Helpers
-  gem 'timecop', "~> 0.6.2.2"
+  gem 'timecop', "~> 0.6.3"
   gem 'timer', '~> 0.1.6'
 
   gem "spork", "~> 0.9.2"
   gem 'pry', " ~> 0.9.12.2"
-  gem 'pry-rails', "~> 0.3.0"
+  gem 'pry-rails', "~> 0.3.2"
   gem 'pry-rescue', '~> 1.1.1'
-  gem 'pry-stack_explorer', "~> 0.4.9"
+  gem 'pry-stack_explorer', "~> 0.4.9.1"
   gem 'sham_rack', "~> 1.3.4"
 
-  gem 'hirb', "~> 0.7.0"
+  gem 'hirb', "~> 0.7.1"
 
   # Fake mail for development
   gem 'mailtrap', "~> 0.2.1"
 
   # VCR Mocks
-  gem "vcr", "~> 2.3.0"
-  gem "fakeweb", "~> 1.3.0"
+  gem "vcr", "~> 2.5.0"
+  gem "webmock", "~> 1.12.0"
 
-  gem "launchy", "~> 2.1.2"
+  gem "launchy", "~> 2.3.0"
 
   # Coverage Testing in the cloud :p
   gem 'coveralls', require: false
