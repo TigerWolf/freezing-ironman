@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-source 'https://gems.gemfury.com/fHtphqCq9zLeDRvssKD4/'
+source 'http://gems.gemfury.com/fHtphqCq9zLeDRvssKD4/'
 
 gem 'rails', '3.2.14'
 gem 'rake',  '~> 0.9.2'
@@ -15,11 +15,27 @@ gem 'ey-provisioner', ">= 1.0.1"
 gem 'airbrake'
 
 # HTTP Client
-gem "excon", "0.22.0" # TODO: Update this when we deprecate and remove cabinet (post FP migration)
+gem "excon", "0.7.4" # TODO: Update this when we deprecate and remove cabinet (post FP migration)
 
 # Performance
 gem 'rpm_contrib', '~> 2.1.4'
 gem 'newrelic_rpm', '~> 3.5.3'
+
+# API
+gem 'grape', "~> 0.5.0"
+gem "grape-entity", "~> 0.3.0"
+
+group :console do
+  # Better `print`
+  gem 'awesome_print', require: 'ap'
+
+  # Syntax highlighting
+  gem 'wirb'
+
+  # Custom views for specific objects, e.g. tables for ActiveRecord
+  gem 'hirb-unicode'
+  gem 'hirb-colors'
+end
 
 # Models
 gem 'pg', '>= 0.11.0'
@@ -69,7 +85,6 @@ gem 'rubyzip', "~> 0.9.9", :require => 'zip/zip'
 gem 'aws-s3', "~> 0.6.3"
 #gem 'multi_json', '~> 1.5.0' # This will need to be re-added when Cabinet is removed and updated to a more recent version
 
-
 # Documentation
 gem 'yard', "~> 0.8.3"
 
@@ -86,13 +101,13 @@ gem 'data_migrate', "~> 1.2.0", git: 'git://github.com/doublewide/data-migrate.g
 gem 'notification_client'
 
 # Inventories
-gem 'feed_proxy_client', "0.0.9"
+gem 'feed_proxy_client', "0.1.0"
 
 # Inventory Filters
 gem 'htmlentities', "~> 4.3.1"
 
-# Add logic between setting_values & publishing values (Decorator)
-gem 'draper', "~> 0.18.0"
+# Decorators
+gem 'draper', "~> 1.2.1"
 
 # Application Config
 gem "app", "~> 1.0.3"
@@ -100,13 +115,15 @@ gem "app", "~> 1.0.3"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier',     '>= 1.0.3'
-  gem 'jquery-rails', '~> 2.1.4'
+  gem 'sass-rails',        '~> 3.2.3'
+  gem 'coffee-rails',      '~> 3.2.1'
+  gem 'uglifier',          '>= 1.0.3'
+  gem 'jquery-rails',      '~> 2.1.4'
+  gem 'hamlbars',          '~> 2.0'
 end
 
 gem 'asset_sync',   '~> 0.5.4'
+gem 'handlebars_assets', '~> 0.14.1'
 
 group :development, :test, :staging do
   # Fixtures
@@ -127,6 +144,7 @@ group :development do
   gem 'sql-logging'
 end
 
+
 # Testing
 group :development, :test do
   # Rspec
@@ -144,6 +162,10 @@ group :development, :test do
 
   gem 'poltergeist'
 
+  # Jasmine
+  gem 'jasminerice', '~> 0.1.0', github: 'bradphelan/jasminerice'
+  gem 'guard-jasmine'
+
   # Mocking
   gem "mocha", "~> 0.13.2", :require => "mocha/setup"
 
@@ -158,22 +180,21 @@ group :development, :test do
   gem 'pry-stack_explorer', "~> 0.4.9.1"
   gem 'sham_rack', "~> 1.3.4"
 
-  gem 'hirb', "~> 0.7.1"
-
   # Fake mail for development
   gem 'mailtrap', "~> 0.2.1"
-
-  # VCR Mocks
-  gem "vcr", "~> 2.5.0"
-  gem "webmock", "~> 1.12.0"
 
   gem "launchy", "~> 2.3.0"
 
   # Coverage Testing in the cloud :p
-  gem 'coveralls', require: false
+  gem "codeclimate-test-reporter", group: :test, require: nil
   gem 'simplecov', :require => false
 end
 
 group :test do
   gem 'resque_spec', "~> 0.13"
+  gem "grape-entity-matchers", '0.0.3'
+
+  # VCR Mocks
+  gem "vcr", "~> 2.5.0"
+  gem "webmock", "~> 1.8.0", require: false
 end
