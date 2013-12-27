@@ -47,22 +47,22 @@ gem 'ancestry', "~> 1.3.0"
 gem "nickel", "~> 0.0.6"
 gem 'activerecord-import', "~> 0.3.1"
 gem 'settingcrazy', '~> 0.1.11', git: 'https://github.com/echannel/settingcrazy.git'
-gem "acts_as_list", "~> 0.2.0"
+gem "acts_as_list", "~> 0.3.0"
 
 # These required for seeds so is used in production (for staging/develop)
 gem 'machinist', "~> 2.0"
 gem 'forgery', "~> 0.5.0"
 
 # Controllers
-gem 'inherited_resources', "~> 1.4.0"
+gem 'inherited_resources', "~> 1.4.1"
 
 # Views
 gem 'browser', "~> 0.1.5"
 gem 'haml', "~> 3.1.7"
-gem 'haml-rails', "~> 0.3.5"
-gem 'will_paginate', "~> 3.0.3"
+gem 'haml-rails', "~> 0.4.0"
+gem 'will_paginate', "~> 3.0.5"
 gem 'dotiw', "~> 1.1.1"
-gem 'navigasmic', '~> 1.0.4'
+gem 'navigasmic', '~> 1.0.5'
 
 # Authentication and authorisation
 gem 'devise','~> 2.2.6'
@@ -110,7 +110,7 @@ gem 'feed_proxy_client', "0.1.0"
 gem 'htmlentities', "~> 4.3.1"
 
 # Decorators
-gem 'draper', "~> 1.2.1"
+gem 'draper', "~> 1.3.0"
 
 # Application Config
 gem "app", "~> 1.0.3"
