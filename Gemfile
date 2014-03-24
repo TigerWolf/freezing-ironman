@@ -1,19 +1,15 @@
 source 'http://rubygems.org'
 source 'http://gems.gemfury.com/fHtphqCq9zLeDRvssKD4/'
 
-gem 'rails', '3.2.16'
-gem 'rake',  '~> 0.9.2'
+gem 'rails', '3.2.17'
+gem 'rake',  '~> 10.1.1'
 
 # HTTP server
-gem 'unicorn', '~> 4.5.0'
+gem 'unicorn', '~> 4.7.0'
 
 # EngineYard
 gem 'ey_config'
 gem 'ey-provisioner', ">= 1.0.1"
-
-# Error Capturing
-gem "rollbar", "~> 0.12.0"
-gem "resque-rollbar", "~> 0.0.4"
 
 # HTTP Client
 gem "excon", "0.7.4" # TODO: Update this when we deprecate and remove cabinet (post FP migration)
@@ -39,7 +35,7 @@ group :console do
 end
 
 # Models
-gem 'pg', '>= 0.11.0'
+gem 'pg', '>= 0.17.1'
 gem "squeel", "~> 1.0.18"
 gem 'meta_search', "~> 1.1.3"
 gem 'valium', "~> 0.5.0"
@@ -48,7 +44,7 @@ gem "nickel", "~> 0.0.6"
 gem 'activerecord-import', "~> 0.3.1"
 gem 'settingcrazy', '~> 0.1.11', git: 'https://github.com/echannel/settingcrazy.git'
 gem "acts_as_list", "~> 0.3.0"
-
+gem 'validates_timeliness', '~> 3.0'
 # These required for seeds so is used in production (for staging/develop)
 gem 'machinist', "~> 2.0"
 gem 'forgery', "~> 0.5.0"
@@ -62,7 +58,7 @@ gem 'haml', "~> 3.1.7"
 gem 'haml-rails', "~> 0.4.0"
 gem 'will_paginate', "~> 3.0.5"
 gem 'dotiw', "~> 1.1.1"
-gem 'navigasmic', '~> 1.0.5'
+gem 'navigasmic', git: "git://github.com/jejacks0n/navigasmic.git", ref: 'f22e4bdde6462e5311b41ac985e4493c5ef471d4'#'~> 1.0.5'
 
 # Authentication and authorisation
 gem 'devise','~> 2.2.6'
@@ -81,7 +77,6 @@ gem 'savon', "~> 1.2.0"
 gem "httparty", "~> 0.10.0"
 gem 'cabinet', "~> 0.2.2"
 gem 'resque', :git => 'git://github.com/resque/resque.git', ref: '7c20cc5972cba44aca0878580ef284bb75246b67' #Anything higher will remove #reserve and break resque-spec 14.4 and redis
-gem 'rubyzip', "~> 0.9.9", :require => 'zip/zip'
 gem 'aws-s3', "~> 0.6.3"
 #gem 'multi_json', '~> 1.5.0' # This will need to be re-added when Cabinet is removed and updated to a more recent version
 
@@ -89,7 +84,7 @@ gem 'aws-s3', "~> 0.6.3"
 gem "google-adwords-api", "~> 0.11.0"
 
 # Documentation
-gem 'yard', "~> 0.8.3"
+gem 'yard', "~> 0.8.7.3"
 
 # Email
 gem "aws-ses", "~> 0.4.4", :require => 'aws/ses'
@@ -115,6 +110,10 @@ gem 'draper', "~> 1.3.0"
 # Application Config
 gem "app", "~> 1.0.3"
 
+# Error Capturing
+gem "rollbar", "~> 0.12.11"
+gem "resque-rollbar", "~> 0.0.4"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -123,6 +122,8 @@ group :assets do
   gem 'uglifier',          '>= 1.0.3'
   gem 'jquery-rails',      '~> 2.1.4'
   gem 'hamlbars',          '~> 2.0'
+
+  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 end
 
 gem 'asset_sync',   '~> 0.5.4'
@@ -161,7 +162,7 @@ group :development, :test do
   gem 'capybara-webkit', "~> 0.12.0"
   gem 'capybara-firebug', "~> 1.3.0"
   gem 'selenium-client', "~> 1.2.18"
-  gem 'selenium-webdriver', '2.31.0'
+  gem 'selenium-webdriver', '2.39.0'
 
   gem 'poltergeist'
 
@@ -187,13 +188,13 @@ group :development, :test do
   gem 'mailtrap', "~> 0.2.1"
 
   gem "launchy", "~> 2.3.0"
-
-  # Coverage Testing in the cloud :p
-  gem "codeclimate-test-reporter", group: :test, require: nil
-  gem 'simplecov', :require => false
 end
 
 group :test do
+
+  # Coverage Testing in the cloud :p
+  gem "codeclimate-test-reporter", "~> 0.2.0"
+
   gem 'resque_spec', "~> 0.14.4"
   gem "grape-entity-matchers", '0.0.3'
 
