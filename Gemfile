@@ -15,8 +15,8 @@ gem 'ey-provisioner', ">= 1.0.1"
 gem "excon", "0.7.4" # TODO: Update this when we deprecate and remove cabinet (post FP migration)
 
 # Performance
-gem 'rpm_contrib', '~> 2.1.4'
-gem 'newrelic_rpm', "~> 3.6.9.171"
+gem 'rpm_contrib', '~> 2.1.11'
+gem 'newrelic_rpm', "~> 3.7.3.204"
 
 # API
 gem 'grape', "~> 0.5.0"
@@ -45,6 +45,7 @@ gem 'activerecord-import', "~> 0.3.1"
 gem 'settingcrazy', '~> 0.1.11', git: 'https://github.com/echannel/settingcrazy.git'
 gem "acts_as_list", "~> 0.3.0"
 gem 'validates_timeliness', '~> 3.0'
+gem "active_model_serializers"
 # These required for seeds so is used in production (for staging/develop)
 gem 'machinist', "~> 2.0"
 gem 'forgery', "~> 0.5.0"
@@ -81,7 +82,7 @@ gem 'aws-s3', "~> 0.6.3"
 #gem 'multi_json', '~> 1.5.0' # This will need to be re-added when Cabinet is removed and updated to a more recent version
 
 # Vendor Specific
-gem "google-adwords-api", "~> 0.11.0"
+gem "google-adwords-api", "~> 0.11.1"
 
 # Documentation
 gem 'yard', "~> 0.8.7.3"
@@ -111,7 +112,7 @@ gem 'draper', "~> 1.3.0"
 gem "app", "~> 1.0.3"
 
 # Error Capturing
-gem "rollbar", "~> 0.12.11"
+gem "rollbar", "~> 0.12.15"
 gem "resque-rollbar", "~> 0.0.4"
 
 # Gems used only for assets and not required
@@ -155,6 +156,8 @@ group :development, :test do
   gem 'rspec-rails', '>= 2.12.0'
   gem 'shoulda', "~> 3.5.0"
 
+  gem 'guard-rspec', require: false
+
   # Moving over to FactoryGirl
   gem "factory_girl_rails", "~> 4.2.1", require: false
 
@@ -177,12 +180,15 @@ group :development, :test do
   gem 'timecop', "~> 0.6.3"
   gem 'timer', '~> 0.1.6'
 
-  gem "spork", "~> 0.9.2"
+  # gem "spork", "~> 0.9.2"
   gem 'pry', " ~> 0.9.12.2"
   gem 'pry-rails', "~> 0.3.2"
   gem 'pry-rescue', '~> 1.1.1'
   gem 'pry-stack_explorer', "~> 0.4.9.1"
   gem 'sham_rack', "~> 1.3.4"
+
+  gem 'guard-spork'
+  gem 'spork-rails', github: 'sporkrb/spork-rails'
 
   # Fake mail for development
   gem 'mailtrap', "~> 0.2.1"
@@ -193,7 +199,7 @@ end
 group :test do
 
   # Coverage Testing in the cloud :p
-  gem "codeclimate-test-reporter", "~> 0.2.0"
+  gem "codeclimate-test-reporter", "~> 0.3.0"
 
   gem 'resque_spec', "~> 0.14.4"
   gem "grape-entity-matchers", '0.0.3'
