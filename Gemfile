@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 source 'http://gems.gemfury.com/fHtphqCq9zLeDRvssKD4/'
 
 gem 'rails', '3.2.17'
+gem 'rack-ssl', '~> 1.3.4' # Security fix
 gem 'rake',  '~> 10.1.1'
 
 # HTTP server
@@ -73,7 +74,7 @@ gem 'magic_encoding', "~> 0.0.2"
 gem 'gravtastic', "~> 3.2.6"
 
 # Worker
-gem 'nokogiri', "~> 1.5.6"
+gem 'nokogiri', '~> 1.6.1'
 gem 'savon', "~> 1.2.0"
 gem "httparty", "~> 0.10.0"
 gem 'cabinet', "~> 0.2.2"
@@ -161,13 +162,13 @@ group :development, :test do
   # Moving over to FactoryGirl
   gem "factory_girl_rails", "~> 4.2.1", require: false
 
-  gem 'capybara', "~> 1.1.4" # 2.0 is now avaliable - will need to check this and possibly upgrade
-  gem 'capybara-webkit', "~> 0.12.0"
-  gem 'capybara-firebug', "~> 1.3.0"
+  gem 'capybara', '~> 2.2.1'
+  gem 'capybara-webkit', "~> 1.1.0"
+  gem 'capybara-firebug', "~> 2.0.0"
   gem 'selenium-client', "~> 1.2.18"
   gem 'selenium-webdriver', '2.39.0'
 
-  gem 'poltergeist'
+  gem 'poltergeist', '1.5.0'
 
   # Jasmine
   gem 'jasminerice', '~> 0.1.0', github: 'bradphelan/jasminerice'
